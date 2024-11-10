@@ -1,9 +1,13 @@
 const express = require('express');
+const cors = require('cors'); // Import the CORS middleware
 const axios = require('axios');
 const cheerio = require('cheerio');
 
 const app = express();
 const port = 3000;
+
+// Enable CORS for all routes
+app.use(cors());
 
 app.use(express.static('public')); // Serve static files like HTML, CSS, JS
 

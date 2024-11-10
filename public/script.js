@@ -3,7 +3,8 @@ document.getElementById('urlForm').addEventListener('submit', async function (e)
     const url = document.getElementById('url').value;
     
     try {
-      const response = await fetch(`/extract?url=${encodeURIComponent(url)}`);
+      // Full URL with EC2 public IP or domain
+      const response = await fetch(`http://localhost:3000/extract?url=${encodeURIComponent(url)}`);
       const data = await response.json();
   
       if (data.ingredients && data.ingredients.length > 0) {
