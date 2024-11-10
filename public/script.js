@@ -4,7 +4,7 @@ document.getElementById('urlForm').addEventListener('submit', async function (e)
     
     try {
       // Full URL with EC2 public IP or domain
-      const response = await fetch(`http://localhost:3000/extract?url=${encodeURIComponent(url)}`);
+      const response = await fetch(`https://node.johnetravels.com/app4/extract?url=${encodeURIComponent(url)}`);
       const data = await response.json();
   
       if (data.ingredients && data.ingredients.length > 0) {
