@@ -4,7 +4,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 
 const app = express();
-const port = 3000;
+const port = 3010;
 
 // Enable CORS for all routes
 app.use(cors());
