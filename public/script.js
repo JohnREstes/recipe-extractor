@@ -1,7 +1,7 @@
 //public/script.js
 
-//const currentHost = 'http://localhost:3010';
-const currentHost = 'https://node.johnetravels.com/app4'
+const currentHost = 'http://localhost:3010';
+//const currentHost = 'https://node.johnetravels.com/app4'
 
 document.getElementById('urlForm').addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -39,9 +39,8 @@ document.getElementById('urlForm').addEventListener('submit', async function (e)
             uniqueIngredients.forEach(ingredient => {
                 const li = document.createElement('li');
 
-                // Create a container div for checkbox and text
-                const ingredientContainer = document.createElement('div');
-                ingredientContainer.classList.add('ingredient-container'); // Add a class for flexbox
+                // Remove the square symbol and extra whitespace from the ingredient text
+                let cleanedIngredient = ingredient.replace(/^▢\s*/, '').trim();  // Remove "▢" and leading whitespace
 
                 // Create a checkbox input for each ingredient
                 const checkbox = document.createElement('input');
@@ -50,11 +49,11 @@ document.getElementById('urlForm').addEventListener('submit', async function (e)
 
                 // Create a span for the ingredient text
                 const ingredientText = document.createElement('span');
-                ingredientText.textContent = ingredient;
+                ingredientText.textContent = cleanedIngredient;
 
-                // Append checkbox and ingredient text to the container div
-                ingredientContainer.appendChild(checkbox);
-                ingredientContainer.appendChild(ingredientText);
+                // Append checkbox and ingredient text to the list item
+                li.appendChild(checkbox);
+                li.appendChild(ingredientText);
 
                 // Add event listener to cross out ingredient when checked
                 checkbox.addEventListener('change', function () {
@@ -65,8 +64,6 @@ document.getElementById('urlForm').addEventListener('submit', async function (e)
                     }
                 });
 
-                // Append the container div to the list item
-                li.appendChild(ingredientContainer);
                 ingredientsList.appendChild(li);
             });
 
@@ -75,6 +72,7 @@ document.getElementById('urlForm').addEventListener('submit', async function (e)
         } else {
             alert('No ingredients found on this page!');
         }
+
 
         // Handle instructions
         if (data.instructions && data.instructions.length > 0) {

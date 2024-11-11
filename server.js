@@ -67,6 +67,13 @@ app.get('/extract', async (req, res) => {
         // Extract instructions with a fallback to elements under a class of 'preparation'
         let instructions = [];
 
+        // First, check for ul or ol under a class of 'direction'
+        $('div[class*="direction"] ul, div[class*="direction"] ol').each((i, elem) => {
+            $(elem).find('li').each((j, li) => {
+                instructions.push($(li).text().trim()); // Get the text of each <li> item and trim whitespace
+        });
+        });
+            
         // First, check for ul or ol under a class of 'preparation'
         $('div[class*="preparation"] ul, div[class*="preparation"] ol').each((i, elem) => {
         $(elem).find('li').each((j, li) => {
