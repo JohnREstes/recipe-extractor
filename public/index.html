@@ -5,20 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recipe Extractor</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <div class="container">
-    <h1>Recipe Ingredients Extractor</h1>
+    <h1>Recipe Extractor</h1>
     <form id="urlForm">
       <label for="url">Enter Recipe URL:</label>
       <input type="url" id="url" placeholder="https://example.com/recipe" required>
-      <button type="submit">Extract Ingredients</button>
+      <button type="submit">Extract Recipe</button>
+      <button type="button" id="clearButton">Clear</button> <!-- Clear Button -->
     </form>
-    <div id="ingredientsList">
+    <h1 id="recipeName" class="hiddenItem">Recipe Name</h1>
+    <div id="ingredientsList" class="hiddenItem">
       <h2>Ingredients:</h2>
       <ul id="ingredients"></ul>
     </div>
+    <div id="instructionList" class="hiddenItem">
+        <h2>Instructions:</h2>
+        <ul id="instructions"></ul>
+    </div>
   </div>
-  <script src="script.js"></script>
 </body>
 </html>
