@@ -1,7 +1,7 @@
 //public/script.js
 
-const currentHost = 'http://localhost:3010';
-//const currentHost = 'https://node.johnetravels.com/app4'
+//const currentHost = 'http://localhost:3010';
+const currentHost = 'https://node.johnetravels.com/app4'
 
 document.getElementById('urlForm').addEventListener('submit', async function (e) {
     e.preventDefault();
